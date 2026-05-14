@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Shopify//Commerce by Design Stockholm 2026//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:commerce-by-design-stockholm-2026@shopify.com
+DTSTAMP:20260514T080000Z
+DTSTART:20260604T143000Z
+DTEND:20260604T200000Z
+SUMMARY:Commerce by Design — An Executive Evening in Stockholm
+DESCRIPTION:An intimate evening of retail inspiration\, connection\, and discussion for Enterprise commerce leaders.\n\n16:30 — Store visit at Singular Society Flagship Store\n17:45 — Wine tasting & dinner at Kryptan (Humlegårdsgatan 13b)\n\nDetails & RSVP: https://daniellesal.github.io/commerce-by-design/\n\nQuestions: danielle.salvatore@shopify.com
+LOCATION:Singular Society Flagship Store → Kryptan\, Humlegårdsgatan 13b\, Stockholm
+URL:https://daniellesal.github.io/commerce-by-design/
+ORGANIZER;CN=Danielle Salvatore:mailto:danielle.salvatore@shopify.com
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-PT1H
+ACTION:DISPLAY
+DESCRIPTION:Commerce by Design starts in 1 hour
+END:VALARM
+END:VEVENT
+END:VCALENDAR
