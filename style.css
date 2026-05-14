@@ -1,0 +1,490 @@
+/* ============================================================
+   Commerce by Design — An Executive Evening in Stockholm
+   ============================================================ */
+
+:root {
+  --bg: #0e0d0b;
+  --bg-2: #14120f;
+  --ink: #ece4d3;
+  --ink-soft: #b9b0a0;
+  --ink-mute: #7a7164;
+  --line: rgba(236, 228, 211, 0.12);
+  --line-strong: rgba(236, 228, 211, 0.22);
+  --accent: #b08144;       /* warm brass */
+  --accent-deep: #5c1a1b;  /* burgundy */
+  --serif: "Cormorant Garamond", "Garamond", "Times New Roman", serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --shadow-deep: 0 30px 80px -20px rgba(0,0,0,0.6);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+/* Subtle film grain overlay */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>");
+}
+
+/* ===== Typography ===== */
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.eyebrow.center { text-align: center; }
+
+.section-title {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  text-align: center;
+  margin-top: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+/* ===== Layout helpers ===== */
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.container.narrow { max-width: 720px; }
+
+section { position: relative; }
+
+/* ===== Top bar ===== */
+
+.topbar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 40px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.mark { font-weight: 500; }
+.topbar-meta { display: flex; gap: 14px; align-items: center; }
+.topbar-meta .dot { color: var(--ink-mute); }
+
+/* ===== Hero ===== */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #1a1612;
+  filter: brightness(0.55) saturate(1.05);
+  transform: scale(1.04);
+}
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, transparent 0%, rgba(14,13,11,0.55) 70%, rgba(14,13,11,0.95) 100%),
+    linear-gradient(180deg, rgba(14,13,11,0.45) 0%, transparent 30%, transparent 60%, rgba(14,13,11,0.85) 100%);
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 140px 40px 100px;
+}
+.hero h1 {
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  margin-top: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.hero h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink);
+}
+.hero-sub {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-top: 1.5rem;
+  font-weight: 300;
+}
+.hero-meta {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
+.hero-meta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.hero-meta .label {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.hero-meta .value {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+.hero-meta .rule {
+  width: 1px;
+  height: 32px;
+  background: var(--line-strong);
+}
+
+/* ===== CTA button ===== */
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  padding: 18px 36px;
+  background: transparent;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.cta:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+.cta-block {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* ===== Invitation ===== */
+
+.invitation {
+  padding: 140px 0 120px;
+  background: var(--bg);
+  text-align: center;
+}
+.invitation .lede {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.35;
+  margin-top: 1.5rem;
+  color: var(--ink);
+  font-weight: 400;
+}
+.invitation .body {
+  margin-top: 1.5rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* ===== Programme / timeline ===== */
+
+.programme {
+  padding: 120px 0 140px;
+  background: var(--bg-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 880px;
+  margin: 0 auto;
+}
+.stop {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+  padding: 40px 0;
+  align-items: start;
+}
+.stop-time {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-left: 1px solid var(--accent);
+  padding-left: 24px;
+}
+.stop-time .time {
+  font-family: var(--serif);
+  font-size: 2.6rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1;
+}
+.stop-time .time-label {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 4px;
+}
+.stop-body h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+.stop-body p {
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin-bottom: 0.6rem;
+}
+.stop-body .address {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink);
+  margin-top: 0.4rem;
+}
+.timeline-rule {
+  height: 1px;
+  background: var(--line);
+  margin: 0;
+}
+.quiet-link {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+  padding-bottom: 2px;
+}
+.quiet-link:hover { border-color: var(--accent); }
+
+/* ===== RSVP form ===== */
+
+.rsvp {
+  padding: 140px 0 140px;
+  text-align: center;
+}
+.rsvp-note {
+  color: var(--ink-soft);
+  margin-bottom: 3rem;
+  font-size: 0.95rem;
+}
+.rsvp-note strong { color: var(--ink); font-weight: 500; }
+
+.form {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: none;
+}
+.field > span,
+.field > legend {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.field em {
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-style: italic;
+  color: var(--ink-mute);
+  font-weight: 300;
+}
+.field input,
+.field textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  padding: 10px 0 12px;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.field textarea { resize: vertical; min-height: 80px; }
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--ink-mute);
+  font-style: italic;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 14px;
+}
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+.radio input {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  flex-shrink: 0;
+}
+.radio input:checked {
+  border-color: var(--accent);
+}
+.radio input:checked::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.form-status {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  text-align: center;
+  min-height: 1.4em;
+  margin-top: 4px;
+}
+.form-status.error { color: #d97a7a; }
+
+.success-card {
+  margin-top: 2rem;
+  padding: 60px 40px;
+  border: 1px solid var(--line-strong);
+  text-align: center;
+}
+.success-card h3 {
+  font-size: 2.2rem;
+  margin: 1rem 0;
+}
+.success-card p { color: var(--ink-soft); }
+
+/* ===== Footer ===== */
+
+.footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--line);
+  background: var(--bg-2);
+}
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-mark {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.footer-sub {
+  font-size: 11px;
+  color: var(--ink-mute);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.footer-contact {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+.footer-contact a {
+  color: var(--accent);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.footer-contact a:hover { border-color: var(--accent); }
+
+/* ===== Responsive ===== */
+
+@media (max-width: 720px) {
+  .topbar { padding: 20px 24px; font-size: 10px; }
+  .topbar-meta { gap: 8px; }
+  .hero-inner { padding: 120px 24px 80px; }
+  .hero-meta { gap: 18px; }
+  .hero-meta .rule { display: none; }
+  .container { padding: 0 24px; }
+  .invitation, .programme, .rsvp { padding: 80px 0; }
+  .stop { grid-template-columns: 1fr; gap: 16px; padding: 28px 0; }
+  .row { grid-template-columns: 1fr; }
+  .section-title { margin-bottom: 2rem; }
+}
