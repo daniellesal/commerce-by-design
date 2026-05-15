@@ -136,75 +136,26 @@
         Seats are limited. Please respond by <strong>21 May 2026</strong>.
       </p>
 
-      <form id="rsvp-form" class="form"
-            action="https://formsubmit.co/danielle.salvatore@shopify.com"
-            method="POST">
-        <!-- FormSubmit config (hidden) -->
-        <input type="hidden" name="_subject" value="🍷 New RSVP — Commerce by Design Stockholm" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://daniellesal.github.io/commerce-by-design/?rsvp=success#rsvp" />
-        <!-- honeypot — bots fill this, humans don't -->
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+      <div class="rsvp-card">
+        <p class="rsvp-intro">
+          To reserve your seat, simply reply to Danielle by email — she'll
+          confirm your spot and follow up with the final details closer to
+          the date.
+        </p>
 
-        <div class="row">
-          <label class="field">
-            <span>Full name</span>
-            <input type="text" name="Name" required autocomplete="name" />
-          </label>
-          <label class="field">
-            <span>Work email</span>
-            <input type="email" name="Email" required autocomplete="email" />
-          </label>
-        </div>
+        <a class="cta cta-block" id="rsvp-mailto"
+           href="mailto:danielle.salvatore@shopify.com?subject=RSVP%20%E2%80%94%20Commerce%20by%20Design%2C%20Stockholm%20(4%20June%202026)&amp;body=Hi%20Danielle%2C%0A%0AThank%20you%20for%20the%20invitation%20to%20Commerce%20by%20Design%20on%204%20June.%0A%0A%E2%80%94%20Attending%3A%20Yes%20%2F%20No%0A%E2%80%94%20Name%3A%20%0A%E2%80%94%20Title%3A%20%0A%E2%80%94%20Company%3A%20%0A%E2%80%94%20Dietary%20requirements%20(if%20any)%3A%20%0A%E2%80%94%20Anything%20else%20you%27d%20like%20us%20to%20know%3A%20%0A%0ALooking%20forward%20to%20it%2C%0A">
+          <span class="cta-label">RSVP by email</span>
+        </a>
 
-        <div class="row">
-          <label class="field">
-            <span>Company</span>
-            <input type="text" name="Company" required autocomplete="organization" />
-          </label>
-          <label class="field">
-            <span>Title</span>
-            <input type="text" name="Title" autocomplete="organization-title" />
-          </label>
-        </div>
+        <p class="rsvp-fineprint">
+          Or write to <a href="mailto:danielle.salvatore@shopify.com">danielle.salvatore@shopify.com</a> directly.
+        </p>
 
-        <fieldset class="field">
-          <legend>Will you be attending?</legend>
-          <div class="radio-group">
-            <label class="radio">
-              <input type="radio" name="Attending" value="Yes" required />
-              <span>Yes, I'll be there</span>
-            </label>
-            <label class="radio">
-              <input type="radio" name="Attending" value="No" />
-              <span>Unfortunately, I can't make it</span>
-            </label>
-          </div>
-        </fieldset>
-
-        <label class="field">
-          <span>Dietary requirements <em>(optional)</em></span>
-          <input type="text" name="Dietary" placeholder="e.g. vegetarian, allergies" />
-        </label>
-
-        <label class="field">
-          <span>Anything we should know? <em>(optional)</em></span>
-          <textarea name="Notes" rows="3" placeholder="Topics you'd love to discuss, people you'd like to meet, etc."></textarea>
-        </label>
-
-        <button type="submit" class="cta cta-block">
-          <span class="cta-label">Send RSVP</span>
-        </button>
-
-        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-      </form>
-
-      <div id="form-success" class="success-card" hidden>
-        <p class="eyebrow center">Confirmed</p>
-        <h3>Thank you.</h3>
-        <p>We've received your reply. A calendar invite and details will follow closer to the date.</p>
-        <a class="cta success-cta" href="./commerce-by-design.ics" download>Add to calendar</a>
+        <a class="cta-link calendar-link" href="./commerce-by-design.ics" download>
+          <span class="cal-icon" aria-hidden="true">⌘</span>
+          Add to calendar
+        </a>
       </div>
     </div>
   </section>
