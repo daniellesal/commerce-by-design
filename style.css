@@ -487,6 +487,51 @@ section { position: relative; }
   border-radius: 50%;
 }
 
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 8px;
+  padding: 16px 0 4px;
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+}
+.consent input[type="checkbox"] {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  margin-top: 3px;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color 0.2s, background 0.2s;
+}
+.consent input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.consent input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 0;
+  width: 4px;
+  height: 8px;
+  border: solid var(--bg);
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+.consent-text {
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--ink-mute);
+  font-family: var(--sans);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
 .form-status {
   font-size: 0.9rem;
   color: var(--ink-soft);
